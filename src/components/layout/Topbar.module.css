@@ -1,0 +1,55 @@
+.bar {
+  grid-column: 1 / -1;
+  height: var(--topbar-h);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--br-base);
+  display: flex; align-items: center;
+  padding: 0 16px 0 0;
+  flex-shrink: 0; z-index: 20;
+}
+.brand {
+  width: var(--sidebar-w); flex-shrink: 0;
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 16px; height: 100%;
+  border-right: 1px solid var(--br-base);
+}
+.mark {
+  width:32px; height:32px; background:var(--amber); border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--f-display); font-weight:800; font-size:16px; color:#000;
+  box-shadow:0 0 20px rgba(245,166,35,0.4); flex-shrink:0;
+}
+.name { font-family:var(--f-display); font-weight:700; font-size:15px; letter-spacing:-0.3px; }
+.sub  { font-family:var(--f-mono); font-size:9px; font-weight:500; letter-spacing:1.8px; text-transform:uppercase; color:var(--amber); opacity:0.8; }
+.center { flex:1; display:flex; align-items:center; gap:8px; padding:0 16px; }
+.right  { display:flex; align-items:center; gap:8px; }
+
+.conn {
+  padding:3px 10px; border-radius:20px;
+  font-family:var(--f-mono); font-size:10px; font-weight:600; letter-spacing:0.5px;
+}
+.live    { background:var(--green-dim); border:1px solid var(--green-ring); color:var(--green); }
+.demo    { background:var(--amber-glow); border:1px solid var(--amber-ring); color:var(--amber); }
+.offline { background:var(--red-dim); border:1px solid var(--red-ring); color:var(--red); }
+
+.apiBtn {
+  padding:4px 10px; font-size:11px; font-weight:600;
+  background:var(--bg-raised); border:1px solid var(--br-mid); border-radius:var(--r);
+  color:var(--tx-muted); cursor:pointer; transition:all 0.14s;
+}
+.apiBtn:hover { border-color:var(--amber-ring); color:var(--amber); }
+.apiBtnOn     { border-color:var(--green-ring) !important; color:var(--green) !important; }
+
+.pill {
+  display:flex; align-items:center; gap:7px;
+  padding:3px 10px 3px 4px;
+  background:var(--bg-raised); border:1px solid var(--br-mid); border-radius:20px;
+}
+.agentName { font-size:12px; font-weight:600; }
+
+.signOut {
+  padding:4px 10px; font-size:11px; font-weight:500;
+  background:transparent; border:1px solid var(--br-mid); border-radius:var(--r);
+  color:var(--tx-secondary); cursor:pointer; transition:all 0.14s;
+}
+.signOut:hover { border-color:var(--red-ring); color:var(--red); background:var(--red-dim); }

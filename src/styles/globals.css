@@ -1,0 +1,69 @@
+:root {
+  --bg-void:    #070809;
+  --bg-base:    #0c0e12;
+  --bg-surface: #111418;
+  --bg-raised:  #171c23;
+  --bg-float:   #1e2430;
+
+  --br-dim:  rgba(255,255,255,0.05);
+  --br-base: rgba(255,255,255,0.09);
+  --br-mid:  rgba(255,255,255,0.14);
+
+  --tx-primary:   #e8ecf2;
+  --tx-secondary: #8b95a6;
+  --tx-muted:     #4e5a6b;
+  --tx-dim:       #2e3847;
+
+  --amber:        #f5a623;
+  --amber-bright: #fbbf24;
+  --amber-glow:   rgba(245,166,35,0.18);
+  --amber-ring:   rgba(245,166,35,0.35);
+
+  --green:      #22c55e;
+  --green-dim:  rgba(34,197,94,0.12);
+  --green-ring: rgba(34,197,94,0.30);
+
+  --red:        #f43f5e;
+  --red-dim:    rgba(244,63,94,0.12);
+  --red-ring:   rgba(244,63,94,0.30);
+
+  --blue:       #38bdf8;
+  --blue-dim:   rgba(56,189,248,0.12);
+  --purple:     #a78bfa;
+  --purple-dim: rgba(167,139,250,0.12);
+
+  --f-display: 'Syne', sans-serif;
+  --f-body:    'Instrument Sans', sans-serif;
+  --f-mono:    'JetBrains Mono', monospace;
+
+  --r:  6px;
+  --r2: 10px;
+  --r3: 14px;
+  --topbar-h:  52px;
+  --sidebar-w: 272px;
+  --chat-w:    320px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; overflow: hidden; }
+body {
+  background: var(--bg-void);
+  color: var(--tx-primary);
+  font-family: var(--f-body);
+  font-size: 13px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--br-mid); border-radius: 4px; }
+
+input, select, textarea, button { font-family: inherit; }
+
+@keyframes fadeUp    { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideIn   { from { opacity:0; transform:translateX(16px); } to { opacity:1; transform:translateX(0); } }
+@keyframes cardIn    { from { opacity:0; transform:translateY(18px) scale(0.97); } to { opacity:1; transform:none; } }
+@keyframes pulseDot  { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes blink     { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes bounce    { 0%,100%{transform:translateY(0);opacity:0.4} 50%{transform:translateY(-4px);opacity:1} }
