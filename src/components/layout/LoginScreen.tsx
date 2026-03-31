@@ -31,8 +31,8 @@ export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
       <div className={s.glow}/>
       <div className={s.card}>
         <div className={s.brand}>
-          <div className={s.mark}>L</div>
-          <div><div className={s.brandName}>LogiPulse</div><div className={s.brandSub}>Support Console</div></div>
+          <div className=""><img src="../assets/logo.png" alt="LogiPulse" /></div>
+          <div><div className={s.titleText}>LogiPulse</div><div className={s.brandSub}>Support Console</div></div>
         </div>
 
         <h1 className={s.heading}>Sign in</h1>

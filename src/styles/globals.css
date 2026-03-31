@@ -14,8 +14,8 @@
   --tx-muted:     #8b95a6;
   --tx-dim:       #b0bac8;
 
-  --amber:        #d4880e;
-  --amber-bright: #e89c18;
+  --amber:        rgb(0, 159, 222);
+  --amber-bright: #009EDB;
   --amber-glow:   rgba(212,136,14,0.12);
   --amber-ring:   rgba(212,136,14,0.35);
 
