@@ -2,8 +2,9 @@ import { Agent, FlowDef, UiElement, UserInfo } from './types';
 
 // export const HUB_URL    = process.env.REACT_APP_HUB_URL ?? 'http://localhost:5000/hubs/support';
 
-export const HUB_URL = process.env.REACT_APP_HUB_URL ?? 'http://192.168.1.42:5000/hubs/support';
-
+export const HUB_URL = 'https://bnwzme2c17.execute-api.ap-south-1.amazonaws.com/dev';
+export const HUB_API_KEY  = 'J03DsugWIp8jOhJmrjJCh5Z6d1FqBZ0z5Wqy6GRm';
+  
 export const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
 
 export const AGENTS: Agent[] = [
