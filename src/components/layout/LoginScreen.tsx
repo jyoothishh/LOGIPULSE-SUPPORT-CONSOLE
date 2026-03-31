@@ -7,10 +7,19 @@ import s from './LoginScreen.module.css';
 interface Props { onLogin: (agent: Agent, apiKey: string) => void; }
 
 export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
-  const [agent,  setAgent]  = useState<Agent|null>(null);
-  const [apiKey, setApiKey] = useState(() => localStorage.getItem('lp_ak') ?? '');
-  const [testing,setTesting]= useState(false);
-  const [testRes,setTestRes]= useState<'ok'|'fail'|null>(null);
+  const [agent,    setAgent]    = useState<Agent|null>(null);
+  const [password, setPassword] = useState('');
+  const [showPw,   setShowPw]   = useState(false);
+  const [pwError,  setPwError]  = useState(false);
+  const [apiKey,   setApiKey]   = useState(() => localStorage.getItem('lp_ak') ?? '');
+  const [testing,  setTesting]  = useState(false);
+  const [testRes,  setTestRes]  = useState<'ok'|'fail'|null>(null);
+
+  const selectAgent = (a: Agent) => {
+    setAgent(a);
+    setPassword('');
+    setPwError(false);
+  };
 
   const tryTest = async () => {
     if (!apiKey.trim()) return;
@@ -21,9 +30,12 @@ export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
 
   const submit = () => {
     if (!agent) return;
+    if (password !== agent.password) { setPwError(true); return; }
     if (apiKey) localStorage.setItem('lp_ak', apiKey);
     onLogin(agent, apiKey);
   };
+
+  const canSubmit = !!agent && password.length > 0;
 
   return (
     <div className={s.screen}>
@@ -38,11 +50,12 @@ export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
         <h1 className={s.heading}>Sign in</h1>
         <p className={s.sub}>Choose your agent profile to open the console</p>
 
+        {/* ── Agent Selection ── */}
         <section className={s.section}>
           <div className={s.label}>Select Agent</div>
           <div className={s.agentGrid}>
             {AGENTS.map(a => (
-              <div key={a.id} className={`${s.agentCard} ${agent?.id===a.id?s.agentActive:''}`} onClick={()=>setAgent(a)}>
+              <div key={a.id} className={`${s.agentCard} ${agent?.id===a.id ? s.agentActive : ''}`} onClick={() => selectAgent(a)}>
                 <div className={s.agentAvatar} style={{background:a.color}}>{a.initials}</div>
                 <div className={s.agentName}>{a.name}</div>
                 <div className={s.agentRole}>{a.role}</div>
@@ -51,6 +64,38 @@ export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
           </div>
         </section>
 
+        {/* ── Password (appears after agent is selected) ── */}
+        {agent && (
+          <section className={s.section}>
+            <div className={s.label} style={{display:'flex', alignItems:'center', gap:7}}>
+              <span>Password for</span>
+              <span className={s.agentBadge} style={{background: agent.color}}>{agent.initials}</span>
+              <span className={s.agentBadgeName}>{agent.name}</span>
+            </div>
+            <div className={s.keyRow}>
+              <input
+                className={`${s.input} ${pwError ? s.inputError : ''}`}
+                type={showPw ? 'text' : 'password'}
+                placeholder="Enter your password"
+                value={password}
+                autoFocus
+                onChange={e => { setPassword(e.target.value); setPwError(false); }}
+                onKeyDown={e => e.key === 'Enter' && canSubmit && submit()}
+              />
+              <button
+                className={s.testBtn}
+                type="button"
+                onClick={() => setShowPw(v => !v)}
+                title={showPw ? 'Hide' : 'Show'}
+              >
+                {showPw ? 'X' : '👁'}
+              </button>
+            </div>
+            {pwError && <div className={s.testFail}>✗ Incorrect password — please try again</div>}
+          </section>
+        )}
+
+        {/* ── Claude API Key ── */}
         <section className={s.section}>
           <div className={s.label} style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
             <span>Claude API Key</span>
@@ -85,8 +130,8 @@ export const LoginScreen: React.FC<Props> = ({ onLogin }) => {
           {testRes==='fail' && <div className={s.testFail}>✗ Key test failed — check and try again</div>}
         </section>
 
-        <button className={s.submit} disabled={!agent} onClick={submit}>
-          {agent ? 'Open Console →' : 'Select an agent above'}
+        <button className={s.submit} disabled={!canSubmit} onClick={submit}>
+          {!agent ? 'Select an agent above' : 'Open Console →'}
         </button>
         {agent && !apiKey && (
           <p className={s.skipNote}>Continuing without LLM translation — you can add a key inside the console anytime</p>

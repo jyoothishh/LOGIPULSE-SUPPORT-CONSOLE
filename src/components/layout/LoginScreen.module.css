@@ -217,6 +217,32 @@
     margin-bottom: 5px;
 }
 
+.inputError {
+    border-color: var(--red) !important;
+    background: rgba(244, 63, 94, 0.05) !important;
+}
+
+.agentBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 8px;
+    font-weight: 700;
+    color: #000;
+    flex-shrink: 0;
+}
+
+.agentBadgeName {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--tx-primary);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
 .input {
     flex: 1;
     background: var(--bg-raised);

@@ -8,10 +8,10 @@ export const HUB_API_KEY  = 'J03DsugWIp8jOhJmrjJCh5Z6d1FqBZ0z5Wqy6GRm';
 export const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
 
 export const AGENTS: Agent[] = [
-  { id:'agent-1', name:'Sarah Chen',   initials:'SC', role:'Senior Support', color:'#F5A623' },
-  { id:'agent-2', name:'Marcus Webb',  initials:'MW', role:'Support Lead',   color:'#22C55E' },
-  { id:'agent-3', name:'Priya Sharma', initials:'PS', role:'Support Agent',  color:'#38BDF8' },
-  { id:'agent-4', name:'Tom Kowalski', initials:'TK', role:'Support Agent',  color:'#A78BFA' },
+  { id:'agent-1', name:'Sarah Chen',   initials:'SC', role:'Senior Support', color:'#F5A623', password:'TrueBlue@123'  },
+  { id:'agent-2', name:'Marcus Webb',  initials:'MW', role:'Support Lead',   color:'#22C55E', password:'TrueBlue@123' },
+  { id:'agent-3', name:'Priya Sharma', initials:'PS', role:'Support Agent',  color:'#38BDF8', password:'TrueBlue@123'  },
+  { id:'agent-4', name:'Tom Kowalski', initials:'TK', role:'Support Agent',  color:'#A78BFA', password:'TrueBlue@123'    },
 ];
 
 // ── Flows: IDs match GuidanceFlowRegistry.cs exactly ────────────────────────

@@ -44,7 +44,7 @@ export interface UiTreeNode extends UiElement {
 }
 
 export interface Agent {
-  id: string; name: string; initials: string; role: string; color: string;
+  id: string; name: string; initials: string; role: string; color: string; password: string;
 }
 
 export interface ChatMessage {
