@@ -13,7 +13,7 @@
 .in   { align-items:flex-start; }
 .sys  { align-items:center; }
 .bubble { max-width:86%; padding:8px 11px; border-radius:11px; font-size:12px; line-height:1.5; }
-.out .bubble { background:var(--amber); color:#000; border-bottom-right-radius:3px; font-weight:500; }
+.out .bubble { background:var(--amber); color:#fff; border-bottom-right-radius:3px; font-weight:500; }
 .in  .bubble { background:var(--bg-raised); border:1px solid var(--br-base); border-bottom-left-radius:3px; }
 .sys .bubble { background:transparent; border:1px dashed var(--br-mid); color:var(--tx-muted); font-size:10px; font-family:var(--f-mono); text-align:center; padding:5px 10px; }
 .translation { font-size:10px; margin-top:5px; padding-top:5px; border-top:1px solid rgba(0,0,0,0.15); font-style:italic; opacity:0.75; }

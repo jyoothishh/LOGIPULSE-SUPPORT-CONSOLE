@@ -35,7 +35,7 @@
 .id        { font-family:var(--f-mono); font-size:9px; color:var(--accent);
              background:rgba(227,179,65,0.1); padding:1px 5px; border-radius:4px;
              flex-shrink:0; max-width:160px; overflow:hidden; text-overflow:ellipsis; }
-.route     { font-size:9px; color:var(--tx-dim); background:rgba(255,255,255,0.05);
+.route     { font-size:9px; color:var(--tx-dim); background:rgba(0,0,0,0.05);
              padding:1px 4px; border-radius:3px; flex-shrink:0; }
 .children  { }
 
